@@ -12,7 +12,7 @@ First start:
    - create profile folder, battleye folder and sample configs
  - start the server
  
- Next starts / restart:
+ Next starts / restart (if the serverfolder exists):
  - move the logs to profile\logs folder to keep everything clean
  - create a backup if configured
  - compress the backup if configured
@@ -25,6 +25,11 @@ First start:
  - download steamcmd from https://developer.valvesoftware.com/wiki/SteamCMD and unpack it somewhere on the server
  - store dayzsa-wintools.bat and settings.bat in the same folder on the server
  - adjust settings.bat for your likings
+ - run dayzsa-wintools.bat
+ - close the server-console window and the cmd window
+ - adjust you settings in profile\server.cfg and profile\battleye\beserver*.cfg
+ - start the endless zombie-apocalypse-fun loop again using dayzsa-wintools.bat
+ - server is restarted automated if the exe is killed, for example if you close the console-window or execute #shutdown via rcon
   
  # Why no BEC / Discord-Webhook integration
  I´am using a BEC and Discord integration on my servers, the reasons why you dont get it with this script:
