@@ -24,6 +24,15 @@ IF NOT EXIST "%server_dir%" (
 	SET "server_init=false"
 )
 
+echo checking server_instance
+IF NOT EXIST "%server_dir%\%server_instance%" (
+	echo server_instance "%server_instance%" not found, we need to initialize the server first!
+	SET "server_init=true"
+	goto serverinit
+) ELSE (
+	SET "server_init=false"
+)
+
 :movelogs
 echo +--------------------------+
 echo +       MOVING  LOGS       +
@@ -123,6 +132,8 @@ IF "%server_init%" == "true" (
 	echo 		template="dayzOffline.chernarusplus"; >> "%server_dir%\%server_instance%\server.cfg"
 	echo 	}; >> "%server_dir%\%server_instance%\server.cfg"
 	echo }; >> "%server_dir%\%server_instance%\server.cfg"
+	SET "server_init=false"
+	goto movelogs
 )
 
 :server
